@@ -1,0 +1,937 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Wiz USA Inc. | Your Trusted Home Buying & Selling Experts</title>
+
+    <!-- Google Fonts: Playfair Display for Headings, Inter for Body Text -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind Config for Custom Theme Styling (Sophisticated Dark Theme) -->
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              navy: {
+                DEFAULT: '#1B2A4A',
+                light: '#2C3E6B',
+                dark: '#0F1A30',
+                indigo: '#15223E',
+                panel: '#16233d',
+                deep: '#111c33'
+              },
+              gold: {
+                DEFAULT: '#D4A017',
+                light: '#EAB839',
+                dark: '#B0820E',
+                cream: '#FCF8ED'
+              }
+            },
+            fontFamily: {
+              serif: ['"Playfair Display"', 'serif'],
+              sans: ['"Inter"', 'sans-serif'],
+            }
+          }
+        }
+      }
+    </script>
+
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+      /* Smooth fade-in scroll animations styles */
+      .fade-in-section {
+        opacity: 0;
+        transform: translateY(24px);
+        transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        will-change: opacity, transform;
+      }
+      .fade-in-section.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      
+      /* Accessibility and interactive design utilities */
+      .outline-focus:focus-visible {
+        outline: 2px solid #D4A017;
+        outline-offset: 2px;
+      }
+    </style>
+  </head>
+  <body class="font-sans bg-[#1B2A4A] text-white antialiased selection:bg-gold selection:text-navy-dark">
+
+    <!-- Header Navigation -->
+    <header id="main-header" class="fixed top-0 left-0 w-full z-50 bg-[#1B2A4A]/90 backdrop-blur-md border-b border-white/10 transition-all duration-300">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+          
+          <!-- Logo Block -->
+          <a href="#hero" class="flex items-center space-x-3 outline-focus group" aria-label="Home Wiz USA Inc. Homepage">
+            <div class="bg-[#D4A017] p-2 rounded-lg text-[#1B2A4A] transition-colors duration-300 group-hover:bg-white flex items-center justify-center">
+              <i data-lucide="home" class="w-6 h-6"></i>
+            </div>
+            <div class="flex flex-col">
+              <span class="font-serif text-xl sm:text-2xl font-bold tracking-tight text-white group-hover:text-gold transition-colors duration-200">Home Wiz</span>
+              <span class="text-[10px] tracking-[0.2em] font-bold text-gold uppercase -mt-1">USA Inc.</span>
+            </div>
+          </a>
+
+          <!-- Desktop Navigation Menu -->
+          <nav class="hidden md:flex items-center space-x-8" aria-label="Main Navigation">
+            <a href="#hero" class="text-sm font-medium text-white/80 hover:text-gold transition-colors outline-focus">Home</a>
+            <a href="#about" class="text-sm font-medium text-white/80 hover:text-gold transition-colors outline-focus">About Us</a>
+            <a href="#services" class="text-sm font-medium text-white/80 hover:text-gold transition-colors outline-focus">Our Services</a>
+            <a href="#why-choose-us" class="text-sm font-medium text-white/80 hover:text-gold transition-colors outline-focus">Why Choose Us</a>
+            <a href="#testimonials" class="text-sm font-medium text-white/80 hover:text-gold transition-colors outline-focus">Testimonials</a>
+            <a href="#contact" class="text-sm font-medium text-white/80 hover:text-gold transition-colors outline-focus">Contact</a>
+          </nav>
+
+          <!-- Desktop CTA Call button -->
+          <div class="hidden lg:flex items-center">
+            <a href="#contact" id="desktop-cta" class="inline-flex items-center justify-center px-5 py-2.5 border border-transparent text-sm font-semibold rounded-lg text-[#1B2A4A] bg-gold hover:bg-white transition-all duration-200 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold outline-focus">
+              Get Started
+            </a>
+          </div>
+
+          <!-- Mobile Hamburger Toggle Button -->
+          <div class="flex md:hidden">
+            <button id="mobile-menu-toggle" type="button" class="inline-flex items-center justify-center p-2 rounded-lg text-white hover:bg-white/10 outline-focus" aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle main menu" style="min-height: 44px; min-width: 44px;">
+              <i data-lucide="menu" id="menu-icon-hamburger" class="w-6 h-6"></i>
+              <i data-lucide="x" id="menu-icon-close" class="w-6 h-6 hidden"></i>
+            </button>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Mobile Dropdown Area -->
+      <div id="mobile-menu" class="hidden md:hidden bg-[#16233d] border-t border-white/10 transition-all duration-300">
+        <div class="px-4 pt-3 pb-6 space-y-2">
+          <a href="#hero" class="mobile-nav-link block px-3 py-3 rounded-md text-base font-medium text-white hover:bg-white/5 hover:text-gold outline-focus">Home</a>
+          <a href="#about" class="mobile-nav-link block px-3 py-3 rounded-md text-base font-medium text-white hover:bg-white/5 hover:text-gold outline-focus">About Us</a>
+          <a href="#services" class="mobile-nav-link block px-3 py-3 rounded-md text-base font-medium text-white hover:bg-white/5 hover:text-gold outline-focus">Our Services</a>
+          <a href="#why-choose-us" class="mobile-nav-link block px-3 py-3 rounded-md text-base font-medium text-white hover:bg-white/5 hover:text-gold outline-focus">Why Choose Us</a>
+          <a href="#testimonials" class="mobile-nav-link block px-3 py-3 rounded-md text-base font-medium text-white hover:bg-white/5 hover:text-gold outline-focus">Testimonials</a>
+          <a href="#contact" class="mobile-nav-link block px-3 py-3 rounded-md text-base font-medium text-white hover:bg-white/5 hover:text-gold outline-focus">Contact</a>
+          <div class="pt-4 border-t border-white/10">
+            <a href="#contact" class="mobile-nav-link flex w-full justify-center items-center py-3 px-4 border border-transparent rounded-lg text-center font-semibold text-[#1B2A4A] bg-gold hover:bg-white outline-focus" style="min-height: 44px;">
+              Get Started
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Grid -->
+    <main class="pt-20">
+
+      <!-- 1. Hero Section -->
+      <section id="hero" class="relative bg-[#1B2A4A] overflow-hidden min-h-[90vh] flex items-center shadow-inner" aria-labelledby="hero-title">
+        <!-- Abstract background pattern with high-quality house imagery overlay -->
+        <div class="absolute inset-0">
+          <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1920&q=80" alt="Beautiful modern home" class="w-full h-full object-cover opacity-40">
+          <!-- Gradients configured for premium typography contrast -->
+          <div class="absolute inset-0 bg-gradient-to-r from-[#1B2A4A] via-[#1B2A4A]/90 to-transparent"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-[#1B2A4A]/95 via-transparent to-transparent"></div>
+        </div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32 z-10">
+          <div class="max-w-3xl">
+            
+            <!-- Bilingual Mission Taglet Badge -->
+            <div class="inline-flex items-center space-x-2 bg-gold/15 border border-gold/30 rounded-full px-4 py-1.5 mb-6 text-xs font-semibold text-gold tracking-wider uppercase">
+              <span class="inline-block w-2 h-2 rounded-full bg-gold"></span>
+              <span>Tu Casa, Our Mission</span>
+            </div>
+
+            <!-- Main Heading with Playfair Serif -->
+            <h1 id="hero-title" class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-none mb-6">
+              Your Trusted <span class="italic">Home Buying</span> & Selling Experts
+            </h1>
+
+            <!-- Subheading supporting high cooperativeness -->
+            <p class="text-lg sm:text-xl text-gray-300 leading-relaxed max-w-2xl mb-10">
+              Cooperative. Hardworking. Here for You. We represent USA families and homeowners with dedicated, hands-on guidance from our broker down to our entire staff.
+            </p>
+
+            <!-- Dual Responsive Call To Action Blocks -->
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+              <!-- Buy Home pre-populates state on hover/click -->
+              <button onclick="scrollToContact('buy')" class="inline-flex items-center justify-center px-8 py-4 bg-gold hover:bg-white border border-transparent rounded-xl text-[#1B2A4A] font-bold text-base transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 shadow-lg cursor-pointer outline-focus select-none" style="min-height: 48px;">
+                <i data-lucide="home" class="w-5 h-5 mr-2"></i>
+                Buy a Home
+              </button>
+
+              <!-- Sell Home pre-populates state on hover/click -->
+              <button onclick="scrollToContact('sell')" class="inline-flex items-center justify-center px-8 py-4 bg-transparent hover:bg-white/10 border-2 border-white/30 rounded-xl text-white font-semibold text-base transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer outline-focus select-none" style="min-height: 48px;">
+                <i data-lucide="tag" class="w-5 h-5 mr-2"></i>
+                Sell My Home
+              </button>
+            </div>
+
+            <!-- Trust proof points in hero footer -->
+            <div class="grid grid-cols-3 gap-6 pt-12 mt-12 border-t border-white/10 max-w-xl">
+              <div>
+                <span class="block text-2xl sm:text-3xl font-bold text-gold font-serif">8+</span>
+                <span class="block text-xs text-gray-400 mt-1 uppercase tracking-wider uppercase">Years in Practice</span>
+              </div>
+              <div>
+                <span class="block text-2xl sm:text-3xl font-bold text-gold font-serif">100%</span>
+                <span class="block text-xs text-gray-400 mt-1 uppercase tracking-wider uppercase">Broker Co-Op</span>
+              </div>
+              <div>
+                <span class="block text-2xl sm:text-3xl font-bold text-gold font-serif">5.0 ★</span>
+                <span class="block text-xs text-gray-400 mt-1 uppercase tracking-wider uppercase">Review Index</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. About Us Section -->
+      <section id="about" class="py-24 bg-[#1B2A4A] border-t border-white/5 scroll-mt-20 fade-in-section" aria-labelledby="about-title">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="lg:grid lg:grid-cols-12 lg:gap-16 items-center">
+            
+            <!-- Left Grid: Editorial Graphics & Team Grid mock -->
+            <div class="lg:col-span-5 mb-12 lg:mb-0 relative">
+              <div class="relative rounded-2xl overflow-hidden aspect-w-4 aspect-h-3 shadow-2xl border border-white/10">
+                <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=800&q=80" alt="Home Wiz USA Inc. cooperative real estate team working together for clients" class="w-full h-full object-cover opacity-90">
+                <!-- Warm ambient gradient -->
+                <div class="absolute inset-0 bg-gradient-to-t from-navy/50 to-transparent"></div>
+              </div>
+              
+              <!-- Aesthetic overlap accent card -->
+              <div class="absolute -bottom-6 -right-6 hidden sm:flex items-center bg-white/5 border border-white/10 p-6 rounded-xl max-w-xs shadow-md backdrop-blur-md">
+                <div class="mr-4 text-gold shrink-0">
+                  <i data-lucide="shield-check" class="w-8 h-8"></i>
+                </div>
+                <div>
+                  <h4 class="font-serif text-sm font-bold text-white">Licensed & Certified</h4>
+                  <p class="text-xs text-gray-300 mt-1">Full state accreditation with expert localized advisors.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Grid: Narrative content -->
+            <div class="lg:col-span-7">
+              <div class="text-gold uppercase text-xs font-bold tracking-[0.2em] mb-3">Established Real Estate Experts</div>
+              <h2 id="about-title" class="font-serif text-3xl sm:text-4xl font-bold text-white leading-tight mb-6">
+                A True Cooperative Force in Real Estate
+              </h2>
+              
+              <!-- About statement body -->
+              <div class="space-y-6 text-base text-gray-300 leading-relaxed">
+                <p>
+                  At <strong class="text-gold font-semibold">Home Wiz USA Inc.</strong>, we understand that buying or selling a home is more than a commercial transaction—it is a life-defining milestone. For over eight years, our broker-led agency has navigated the local housing market with a single, unifying strategy: complete cooperation.
+                </p>
+                <p>
+                  Unlike fragmented brokerages where agents work in isolated silos, our team operates as an integrated unit. Every administrative assistant, consultant, and field agent participates collectively under our Broker's seasoned leadership. This collective power means that when you hire Home Wiz, you do not just hire a single agent — <strong class="text-white font-semibold">you secure the focused mind of our entire corporate brain trust</strong>.
+                </p>
+                <p>
+                  Whether translating blueprints into simple insights or handling bilingual paperwork with thorough precision, our service remains strictly hands-on. Your dreams are safeguarded by professionals who stand by you every step of the journey.
+                </p>
+              </div>
+
+              <!-- Unifying Tagline Quote block -->
+              <div class="mt-8 pt-8 border-t border-white/10">
+                <blockquote class="border-l-4 border-gold pl-6">
+                  <p class="font-serif text-lg md:text-xl text-white italic font-medium leading-normal">
+                    "From our Broker to our entire staff — we work for you."
+                  </p>
+                  <cite class="block text-xs font-semibold text-gray-400 uppercase tracking-widest mt-2 not-italic">
+                    — The Leadership Team, Home Wiz USA Inc.
+                  </cite>
+                </blockquote>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. Our Services Section -->
+      <section id="services" class="py-24 bg-[#16233d] border-t border-b border-white/5 scroll-mt-20 fade-in-section" aria-labelledby="services-title">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <!-- Central Section Header -->
+          <div class="text-center max-w-3xl mx-auto mb-16">
+            <span class="text-gold uppercase text-xs font-bold tracking-[0.2em] block mb-3">What We Do</span>
+            <h2 id="services-title" class="font-serif text-3xl sm:text-4xl font-bold text-white mb-4">
+              Comprehensive Brokerage Solutions
+            </h2>
+            <p class="text-gray-300 text-base sm:text-lg">
+              Through hands-on expertise and a fully shared work ethic, we provide structured, dependable paths to ownership, sales, and investments.
+            </p>
+          </div>
+
+          <!-- 3-Card Grid with High-Contrast Designs (Sophisticated Dark Style) -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <!-- Card 1: Home Buying -->
+            <div class="bg-white/5 rounded-2xl border border-white/10 p-8 hover:shadow-2xl hover:border-gold/50 transition-all duration-300 flex flex-col justify-between group">
+              <div>
+                <div class="bg-gold/10 w-12 h-12 rounded-xl flex items-center justify-center text-gold mb-6 group-hover:bg-gold group-hover:text-[#1B2A4A] transition-all duration-300">
+                  <i data-lucide="home" class="w-6 h-6"></i>
+                </div>
+                <h3 class="font-serif text-xl font-bold text-white mb-3">Home Buying Support</h3>
+                <p class="text-gray-300 text-sm leading-relaxed mb-6">
+                  Find your perfect home in any neighborhood. We guide you transparently through pre-approval, market evaluation, active listing tours, and contract negotiations.
+                </p>
+              </div>
+              <button onclick="scrollToContact('buy')" class="inline-flex items-center text-xs font-bold text-gold hover:text-white transition-colors outline-focus uppercase tracking-wider select-none cursor-pointer">
+                Find Your Home <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+              </button>
+            </div>
+
+            <!-- Card 2: Home Selling -->
+            <div class="bg-white/5 rounded-2xl border border-white/10 p-8 hover:shadow-2xl hover:border-gold/50 transition-all duration-300 flex flex-col justify-between group">
+              <div>
+                <div class="bg-gold/10 w-12 h-12 rounded-xl flex items-center justify-center text-gold mb-6 group-hover:bg-gold group-hover:text-[#1B2A4A] transition-all duration-300">
+                  <i data-lucide="clipboard-list" class="w-6 h-6"></i>
+                </div>
+                <h3 class="font-serif text-xl font-bold text-white mb-3">Home Selling Solutions</h3>
+                <p class="text-gray-300 text-sm leading-relaxed mb-6">
+                  Maximize your financial return. We supply local valuation intelligence, custom curb-side appeal consultations, multi-platform listings, and dedicated offer negotiations.
+                </p>
+              </div>
+              <button onclick="scrollToContact('sell')" class="inline-flex items-center text-xs font-bold text-gold hover:text-white transition-colors outline-focus uppercase tracking-wider select-none cursor-pointer">
+                Sell Your Property <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+              </button>
+            </div>
+
+            <!-- Card 3: Property Consulting -->
+            <div class="bg-white/5 rounded-2xl border border-white/10 p-8 hover:shadow-2xl hover:border-gold/50 transition-all duration-300 flex flex-col justify-between group">
+              <div>
+                <div class="bg-gold/10 w-12 h-12 rounded-xl flex items-center justify-center text-gold mb-6 group-hover:bg-gold group-hover:text-[#1B2A4A] transition-all duration-300">
+                  <i data-lucide="users" class="w-6 h-6"></i>
+                </div>
+                <h3 class="font-serif text-xl font-bold text-white mb-3">Property Consulting</h3>
+                <p class="text-gray-300 text-sm leading-relaxed mb-6">
+                  Navigate real estate confidently. Secure expert advice on rental optimization models, physical appraisal checks, lease valuations, and custom bilingual consultations.
+                </p>
+              </div>
+              <button onclick="scrollToContact('learn')" class="inline-flex items-center text-xs font-bold text-gold hover:text-white transition-colors outline-focus uppercase tracking-wider select-none cursor-pointer">
+                Consult With Us <i data-lucide="arrow-right" class="w-4 h-4 ml-1"></i>
+              </button>
+            </div>
+
+          </div>
+
+          <!-- Bilingual informational tag beneath cards -->
+          <div class="mt-12 text-center text-xs text-gray-300 font-medium">
+            <span class="inline-flex items-center justify-center bg-white/5 border border-white/10 px-4 py-2 rounded-full shadow-sm">
+              <i data-lucide="languages" class="w-4 h-4 mr-1.5 text-gold"></i>
+              Ofrecemos servicios completos en español e inglés para toda nuestra comunidad.
+            </span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 4. Why Choose Us Section -->
+      <section id="why-choose-us" class="py-24 bg-[#1B2A4A] border-b border-white/5 scroll-mt-20 fade-in-section" aria-labelledby="why-title">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div class="lg:grid lg:grid-cols-12 lg:gap-16 items-start">
+            
+            <!-- Left Side copywriting block -->
+            <div class="lg:col-span-5 mb-12 lg:mb-0">
+              <span class="text-gold uppercase text-xs font-bold tracking-[0.2em] block mb-3">Our Core Assets</span>
+              <h2 id="why-title" class="font-serif text-3xl sm:text-4xl font-bold text-white leading-tight mb-6">
+                Redefining Dedication, One Client at a Time
+              </h2>
+              <p class="text-gray-300 text-base leading-relaxed mb-6">
+                Over our eight years of experience, we have realized that the big brokerages struggle with one thing: personal accountability. Home Wiz USA Inc. bridges this gap by offering robust corporate capabilities accompanied by deep, personal attentiveness.
+              </p>
+              <p class="text-gray-300 text-base leading-relaxed">
+                When critical hurdles arise in real estate, our entire network cooperates dynamically. Your deal gets closed securely, carefully, and under direct Broker visibility.
+              </p>
+
+              <!-- Tiny feature list -->
+              <div class="mt-8 space-y-4">
+                <div class="flex items-center">
+                  <div class="text-gold mr-3"><i data-lucide="check-circle" class="w-5 h-5"></i></div>
+                  <span class="text-sm font-medium text-white">Established in the USA since 2018</span>
+                </div>
+                <div class="flex items-center">
+                  <div class="text-gold mr-3"><i data-lucide="check-circle" class="w-5 h-5"></i></div>
+                  <span class="text-sm font-medium text-white">Broker-approved transaction screening</span>
+                </div>
+                <div class="flex items-center">
+                  <div class="text-gold mr-3"><i data-lucide="check-circle" class="w-5 h-5"></i></div>
+                  <span class="text-sm font-medium text-white">Dedicated, supportive bilingual administrative staff</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Side Grid with 4 feature cards -->
+            <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
+              
+              <!-- Card 1: Experienced Team -->
+              <div class="p-6 rounded-xl bg-white/5 border border-white/5 hover:border-gold/30 transition-all shadow-md">
+                <div class="text-gold mb-4"><i data-lucide="award" class="w-8 h-8"></i></div>
+                <h3 class="font-serif text-lg font-bold text-white mb-2">Experienced Team</h3>
+                <p class="text-gray-300 text-xs leading-normal">
+                  In practice for over 8 years, our leadership combines local real-estate intuition with proven strategic closures.
+                </p>
+              </div>
+
+              <!-- Card 2: Cooperative Approach -->
+              <div class="p-6 rounded-xl bg-white/5 border border-white/5 hover:border-gold/30 transition-all shadow-md">
+                <div class="text-gold mb-4"><i data-lucide="heart-handshake" class="w-8 h-8"></i></div>
+                <h3 class="font-serif text-lg font-bold text-white mb-2">Cooperative Approach</h3>
+                <p class="text-gray-300 text-xs leading-normal">
+                  We don't isolate efforts. Your files are accessible and tracked collectively so no update is ever missed.
+                </p>
+              </div>
+
+              <!-- Card 3: Hardworking Staff -->
+              <div class="p-6 rounded-xl bg-white/5 border border-[#D4A017]/10 hover:border-gold/30 transition-all shadow-md">
+                <div class="text-gold mb-4"><i data-lucide="flame" class="w-8 h-8"></i></div>
+                <h3 class="font-serif text-lg font-bold text-white mb-2">Hardworking Staff</h3>
+                <p class="text-gray-300 text-xs leading-normal">
+                  Driven, patient, and thorough from our Broker directly down to our supporting desk coordinators.
+                </p>
+              </div>
+
+              <!-- Card 4: Personalized Service -->
+              <div class="p-6 rounded-xl bg-white/5 border border-white/5 hover:border-gold/30 transition-all shadow-md">
+                <div class="text-gold mb-4"><i data-lucide="user-check" class="w-8 h-8"></i></div>
+                <h3 class="font-serif text-lg font-bold text-white mb-2">Personal Service</h3>
+                <p class="text-gray-300 text-xs leading-normal">
+                  We match our pace directly with your comfort levels. Custom solutions, tailored calls, and real assistance.
+                </p>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 5. Testimonials Section -->
+      <section id="testimonials" class="py-24 bg-[#16233d] text-white border-b border-white/5 scroll-mt-20 fade-in-section" aria-labelledby="testimonials-title">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <!-- Column Layout header -->
+          <div class="max-w-3xl mx-auto text-center mb-16">
+            <span class="text-gold uppercase text-xs font-bold tracking-[0.2em] block mb-3">Voices of Experience</span>
+            <h2 id="testimonials-title" class="font-serif text-3xl sm:text-4xl font-bold mb-4">
+              Validated Customer Reviews
+            </h2>
+            <p class="text-gray-300 text-base">
+              Client trust is our primary success parameter. Here are verified public Google Reviews celebrating the cooperative work ethic that fuels our office daily.
+            </p>
+          </div>
+
+          <!-- Two big pull-quote layouts side-by-side -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            
+            <!-- Testimonial 1 -->
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-8 relative flex flex-col justify-between shadow-2xl">
+              <!-- Giant visual quote signifier -->
+              <span class="absolute right-8 top-8 text-gold/10 font-serif text-8xl pointer-events-none select-none">“</span>
+              
+              <div>
+                <!-- 5 Golden Stars indicator -->
+                <div class="flex items-center space-x-1 mb-6">
+                  <i data-lucide="star" class="w-5 h-5 fill-gold text-gold"></i>
+                  <i data-lucide="star" class="w-5 h-5 fill-gold text-gold"></i>
+                  <i data-lucide="star" class="w-5 h-5 fill-gold text-gold"></i>
+                  <i data-lucide="star" class="w-5 h-5 fill-gold text-gold"></i>
+                  <i data-lucide="star" class="w-5 h-5 fill-gold text-gold"></i>
+                </div>
+                
+                <p class="font-serif text-lg sm:text-xl text-gray-100 italic leading-relaxed mb-6">
+                  "Amazing Real Estate company. Super cooperative and hardworking. From the Broker to the entire staff."
+                </p>
+              </div>
+
+              <div class="border-t border-white/10 pt-6 flex items-center justify-between">
+                <div>
+                  <span class="font-semibold block text-white text-base">Paula H.</span>
+                  <span class="text-xs text-gold font-medium uppercase tracking-wider">Verified Google Reviewer</span>
+                </div>
+                <div class="bg-white/5 px-3 py-1.5 rounded-md flex items-center space-x-1 text-xs text-gray-300 border border-white/10">
+                  <i data-lucide="shield-check" class="w-4 h-4 text-gold"></i>
+                  <span>Verified Client</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Testimonial 2 -->
+            <div class="bg-white/5 border border-white/10 rounded-2xl p-8 relative flex flex-col justify-between shadow-2xl">
+              <!-- Giant visual quote signifier -->
+              <span class="absolute right-8 top-8 text-gold/10 font-serif text-8xl pointer-events-none select-none">“</span>
+              
+              <div>
+                <!-- 5 Golden Stars indicator -->
+                <div class="flex items-center space-x-1 mb-6">
+                  <i data-lucide="star" class="w-5 h-5 fill-gold text-gold"></i>
+                  <i data-lucide="star" class="w-5 h-5 fill-gold text-gold"></i>
+                  <i data-lucide="star" class="w-5 h-5 fill-gold text-gold"></i>
+                  <i data-lucide="star" class="w-5 h-5 fill-gold text-gold"></i>
+                  <i data-lucide="star" class="w-5 h-5 fill-gold text-gold"></i>
+                </div>
+                
+                <p class="font-serif text-lg sm:text-xl text-gray-100 italic leading-relaxed mb-6">
+                  "The best!"
+                </p>
+              </div>
+
+              <div class="border-t border-white/10 pt-6 flex items-center justify-between">
+                <div>
+                  <span class="font-semibold block text-white text-base">Edelink U.</span>
+                  <span class="text-xs text-gold font-medium uppercase tracking-wider">Verified Google Reviewer</span>
+                </div>
+                <div class="bg-white/5 px-3 py-1.5 rounded-md flex items-center space-x-1 text-xs text-gray-300 border border-white/10">
+                  <i data-lucide="shield-check" class="w-4 h-4 text-gold"></i>
+                  <span>Verified Buyer client</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 6. Contact / Get Started Section -->
+      <section id="contact" class="py-24 bg-[#1B2A4A] scroll-mt-20 border-b border-white/10 fade-in-section" aria-labelledby="contact-title">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div class="lg:grid lg:grid-cols-12 lg:gap-16 items-start">
+            
+            <!-- Left Info Block -->
+            <div class="lg:col-span-5 mb-12 lg:mb-0">
+              <span class="text-gold uppercase text-xs font-bold tracking-[0.2em] block mb-3 font-semibold">Connect With Us</span>
+              <h2 id="contact-title" class="font-serif text-3xl sm:text-4xl font-bold text-white mb-6">
+                Ready to Find Your Dream Home?
+              </h2>
+              <p class="text-gray-300 text-base leading-relaxed mb-8">
+                Send us a direct message referencing your goals. Once received, our administrative team will immediately prioritize routing your request to the broker or specialized coordinator who fits your criteria.
+              </p>
+
+              <!-- Local details contact cards -->
+              <div class="space-y-6">
+                <!-- Phone Card -->
+                <div class="flex items-start">
+                  <div class="bg-white/5 border border-white/10 p-3 rounded-lg text-gold mr-4 shrink-0">
+                    <i data-lucide="phone-call" class="w-6 h-6"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-xs font-semibold uppercase tracking-wider text-white">Direct Voice Support</h4>
+                    <a href="tel:18005559491" class="text-base font-bold text-white hover:text-gold transition-colors outline-focus mt-0.5 block">+1 (800) 555-9491</a>
+                  </div>
+                </div>
+
+                <!-- Email Card -->
+                <div class="flex items-start">
+                  <div class="bg-white/5 border border-white/10 p-3 rounded-lg text-gold mr-4 shrink-0">
+                    <i data-lucide="mail" class="w-6 h-6"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-xs font-semibold uppercase tracking-wider text-white">Online Response Desk</h4>
+                    <a href="mailto:info@homewizusa.com" class="text-base font-bold text-white hover:text-gold transition-colors outline-focus mt-0.5 block">info@homewizusa.com</a>
+                  </div>
+                </div>
+
+                <!-- Address Card -->
+                <div class="flex items-start">
+                  <div class="bg-white/5 border border-white/10 p-3 rounded-lg text-gold mr-4 shrink-0">
+                    <i data-lucide="map-pin" class="w-6 h-6"></i>
+                  </div>
+                  <div>
+                    <h4 class="text-xs font-semibold uppercase tracking-wider text-white">Headquarters USA</h4>
+                    <address class="text-sm text-gray-300 font-medium not-italic mt-0.5 leading-relaxed">
+                      1240 Constitution Ave. NW Suite 320,<br>Washington, DC 20001
+                    </address>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Spanish language reassurance -->
+              <div class="mt-8 p-4 rounded-xl bg-white/5 border border-white/10 flex items-center">
+                <div class="text-gold mr-3">
+                  <i data-lucide="languages" class="w-5 h-5"></i>
+                </div>
+                <p class="text-xs font-semibold text-white leading-normal">
+                  Hablamos Español. Todo nuestro personal está capacitado para gestionar transacciones en su idioma de preferencia.
+                </p>
+              </div>
+
+            </div>
+
+            <!-- Lead Capture Interactive Form (Sophisticated Dark Style) -->
+            <div id="contact-wrapper" class="lg:col-span-7 bg-[#16233d] border border-white/15 shadow-2xl rounded-2xl p-6 sm:p-10 relative overflow-hidden">
+              
+              <!-- Clean validation success feedback toast block -->
+              <div id="submit-success" class="hidden absolute inset-0 bg-[#16233d] z-20 flex flex-col items-center justify-center p-8 text-center animate-fade-in transition-all duration-300">
+                <div class="bg-white/5 border border-white/10 text-gold p-4 rounded-full mb-6">
+                  <i data-lucide="badge-check" class="w-12 h-12"></i>
+                </div>
+                <h3 class="font-serif text-2xl sm:text-3xl font-bold text-white mb-3">Thank You, <span id="success-client-name"></span>!</h3>
+                <p class="text-gray-300 max-w-sm mb-8">
+                  Your details have been registered into our cooperative desk safely. A real administrative coordinator will call or email you shortly.
+                </p>
+                <button onclick="resetContactForm()" class="inline-flex items-center px-6 py-3 bg-gold text-[#1B2A4A] font-semibold rounded-lg hover:bg-white text-sm outline-focus cursor-pointer select-none">
+                  Send Another Inquiry
+                </button>
+              </div>
+
+              <!-- Real-world actionable Form fields layout -->
+              <form id="lead-form" onsubmit="handleFormSubmission(event)" class="space-y-6" novalidate>
+                
+                <!-- Double inputs row -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <!-- Name Field -->
+                  <div class="relative">
+                    <label for="client_name" class="block text-xs font-bold text-white/90 uppercase tracking-wider mb-2">Full Name <span class="text-red-500">*</span></label>
+                    <input type="text" id="client_name" name="client_name" required placeholder="Jane Doe" class="block w-full rounded-lg bg-white/5 border border-white/20 px-4 py-3 text-sm text-white placeholder-gray-400 focus:border-[#D4A017] focus:ring-1 focus:ring-[#D4A017] outline-none transition-all duration-200 outline-focus" style="min-height: 44px;">
+                    <span id="error-name" class="hidden text-xs text-red-500 font-medium absolute -bottom-5 left-0">Please tell us your name.</span>
+                  </div>
+
+                  <!-- Email Field -->
+                  <div class="relative">
+                    <label for="client_email" class="block text-xs font-bold text-white/90 uppercase tracking-wider mb-2">Email Address <span class="text-red-500">*</span></label>
+                    <input type="email" id="client_email" name="client_email" required placeholder="doe@example.com" class="block w-full rounded-lg bg-white/5 border border-white/20 px-4 py-3 text-sm text-white placeholder-gray-400 focus:border-[#D4A017] focus:ring-1 focus:ring-[#D4A017] outline-none transition-all duration-200 outline-focus" style="min-height: 44px;">
+                    <span id="error-email" class="hidden text-xs text-red-500 font-medium absolute -bottom-5 left-0">Please enter a valid email address.</span>
+                  </div>
+                </div>
+
+                <!-- Phone input with local validation formatting -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                  <div class="relative">
+                    <label for="client_phone" class="block text-xs font-bold text-white/90 uppercase tracking-wider mb-2">Phone Number <span class="text-red-500">*</span></label>
+                    <input type="tel" id="client_phone" name="client_phone" required placeholder="(555) 123-4567" class="block w-full rounded-lg bg-white/5 border border-white/20 px-4 py-3 text-sm text-white placeholder-gray-400 focus:border-[#D4A017] focus:ring-1 focus:ring-[#D4A017] outline-none transition-all duration-200 outline-focus" style="min-height: 44px;">
+                    <span id="error-phone" class="hidden text-xs text-red-500 font-medium absolute -bottom-5 left-0">Please enter a logical telephone connection.</span>
+                  </div>
+
+                  <!-- Dropdown Service Target Selector -->
+                  <div>
+                    <label for="client_intent" class="block text-xs font-bold text-white/90 uppercase tracking-wider mb-2">I Want To...</label>
+                    <select id="client_intent" name="client_intent" class="block w-full rounded-lg bg-[#16233d] border border-white/20 px-4 py-3 text-sm text-white focus:border-[#D4A017] focus:ring-1 focus:ring-[#D4A017] outline-none transition-all duration-200 outline-focus" style="min-height: 44px;">
+                      <option value="buy" class="bg-[#16233d] text-white">Buy a Home</option>
+                      <option value="sell" class="bg-[#16233d] text-white">Sell My Home</option>
+                      <option value="learn" class="bg-[#16233d] text-white">Learn More / Property Consultation</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Custom Optional Message Block -->
+                <div>
+                  <label for="client_comments" class="block text-xs font-bold text-white/90 uppercase tracking-wider mb-2">Message or Property Details</label>
+                  <textarea id="client_comments" name="client_comments" rows="4" placeholder="Tell us exactly what you seek, or specify details about your historical listing..." class="block w-full rounded-lg bg-white/5 border border-white/20 px-4 py-3 text-sm text-white placeholder-gray-400 focus:border-[#D4A017] focus:ring-1 focus:ring-[#D4A017] outline-none transition-all duration-200 outline-focus"></textarea>
+                </div>
+
+                <!-- Corporate disclaimer -->
+                <p class="text-[11px] text-gray-400 leading-normal">
+                  By pressing Contact Us, you yield consent to Home Wiz USA Inc. storing details for internal broker matching. Full security and client discretion verified over 8 years in the market.
+                </p>
+
+                <!-- Action Form Submit -->
+                <button type="submit" class="w-full inline-flex items-center justify-center py-4 border border-transparent rounded-xl text-base font-bold text-[#1B2A4A] bg-gold hover:bg-white transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 shadow-md cursor-pointer select-none outline-focus" style="min-height: 48px;">
+                  <i data-lucide="send" class="w-5 h-5 mr-2"></i>
+                  Contact Us
+                </button>
+
+              </form>
+
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Footer Area (Deep Dark Blue Footer) -->
+    <footer class="bg-[#111c33] text-white pt-20 pb-12 border-t border-white/10 font-sans">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 pb-16 border-b border-white/10">
+          
+          <!-- Column 1: Core logo and brand note -->
+          <div class="md:col-span-1">
+            <a href="#hero" class="flex items-center space-x-3 outline-focus group mb-6" aria-label="Home Wiz USA Inc. footer logo">
+              <div class="bg-gold p-2 rounded-lg text-[#1B2A4A] flex items-center justify-center">
+                <i data-lucide="home" class="w-6 h-6"></i>
+              </div>
+              <div class="flex flex-col">
+                <span class="font-serif text-xl sm:text-2xl font-bold tracking-tight text-white">Home Wiz</span>
+                <span class="text-[10px] tracking-[0.2em] font-bold text-gold uppercase -mt-1">USA Inc.</span>
+              </div>
+            </a>
+            <p class="text-xs text-gray-300 leading-relaxed mb-6">
+              Establishment authority with personalized care: making homeownership and real estate transitions beautiful for over 8 years.
+            </p>
+            <!-- Spanish localized ribbon inside footer -->
+            <p class="text-xs font-semibold text-gold tracking-wide italic leading-normal">
+              "Tu Casa, Our Mission — Una trayectoria intachable a su servicio."
+            </p>
+          </div>
+
+          <!-- Column 2: Navigation Shortcuts -->
+          <div>
+            <h4 class="font-serif text-base font-bold text-gold mb-6 uppercase tracking-wider">Useful Links</h4>
+            <ul class="space-y-4">
+              <li><a href="#hero" class="text-xs font-medium text-gray-400 hover:text-white hover:underline transition-all outline-focus">Home</a></li>
+              <li><a href="#about" class="text-xs font-medium text-gray-400 hover:text-white hover:underline transition-all outline-focus">About Us</a></li>
+              <li><a href="#services" class="text-xs font-medium text-gray-400 hover:text-white hover:underline transition-all outline-focus">Our Services</a></li>
+              <li><a href="#testimonials" class="text-xs font-medium text-gray-400 hover:text-white hover:underline transition-all outline-focus">Client Testimonials</a></li>
+              <li><a href="#contact" class="text-xs font-medium text-gray-400 hover:text-white hover:underline transition-all outline-focus">Contact Desk</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 3: Corporate scope summaries -->
+          <div>
+            <h4 class="font-serif text-base font-bold text-gold mb-6 uppercase tracking-wider font-semibold">Our Scope</h4>
+            <ul class="space-y-4 text-xs text-gray-300 font-medium">
+              <li class="flex items-center"><span class="w-1.5 h-1.5 bg-gold rounded-full mr-2"></span> Home Buying Consultation</li>
+              <li class="flex items-center"><span class="w-1.5 h-1.5 bg-gold rounded-full mr-2"></span> Residential Listing Optimization</li>
+              <li class="flex items-center"><span class="w-1.5 h-1.5 bg-gold rounded-full mr-2"></span> Bilingual Commercial Assistance</li>
+              <li class="flex items-center"><span class="w-1.5 h-1.5 bg-gold rounded-full mr-2"></span> Corporate Appraisal Connections</li>
+            </ul>
+          </div>
+
+          <!-- Column 4: Localized support ribbon -->
+          <div>
+            <h4 class="font-serif text-base font-bold text-gold mb-6 uppercase tracking-wider">Business Support</h4>
+            <p class="text-xs text-gray-300 leading-relaxed mb-4">
+              Our headquarters runs an active, collaborative workspace open across standard business guidelines.
+            </p>
+            <div class="space-y-3">
+              <div class="flex items-center text-xs text-gray-300">
+                <i data-lucide="clock" class="w-4 h-4 text-gold mr-2"></i>
+                <span>Mon - Fri: 9:00 AM - 6:00 PM (EST)</span>
+              </div>
+              <div class="flex items-center text-xs text-gray-300">
+                <i data-lucide="clock" class="w-4 h-4 text-gold mr-2"></i>
+                <span>Sat: 10:00 AM - 3:00 PM (EST)</span>
+              </div>
+              <div class="flex items-center text-xs text-gray-300">
+                <i data-lucide="languages" class="w-4 h-4 text-gold mr-2"></i>
+                <span>Bilingual Desk Available</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Copyright dynamic zone -->
+        <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-gray-400 font-medium">
+          <p>© <span id="copyright-year">2026</span> Home Wiz USA Inc. All Rights Reserved. Licensed Broker Agency.</p>
+          <div class="flex space-x-6 mt-4 sm:mt-0">
+            <a href="#" class="hover:text-white outline-focus transition-colors">Privacy Policy</a>
+            <a href="#" class="hover:text-white outline-focus transition-colors">Broker Disclosures</a>
+            <a href="#" class="hover:text-white outline-focus transition-colors">Equal Housing Opportunity</a>
+          </div>
+        </div>
+
+      </div>
+    </footer>
+
+    <!-- Interactive scripting block for clean UI behaviors -->
+    <script>
+      // Automatically load and render Lucide Icons
+      document.addEventListener("DOMContentLoaded", function() {
+        lucide.createIcons();
+        initScrollAnimations();
+        initStickyHeader();
+        initMobileMenu();
+        initCopyrightYear();
+      });
+
+      // Simple Dynamic Copyright initialization
+      function initCopyrightYear() {
+        const span = document.getElementById("copyright-year");
+        if (span) {
+          const year = new Date().getFullYear();
+          span.textContent = year >= 2026 ? year : 2026;
+        }
+      }
+
+      // Sticky Header glass effect transition on scroll
+      function initStickyHeader() {
+        const header = document.getElementById("main-header");
+        window.addEventListener("scroll", function() {
+          if (window.scrollY > 40) {
+            header.classList.add("shadow-xl", "bg-[#1B2A4A]/95");
+            header.classList.remove("bg-[#1B2A4A]/90");
+          } else {
+            header.classList.remove("shadow-xl", "bg-[#1B2A4A]/95");
+            header.classList.add("bg-[#1B2A4A]/90");
+          }
+        });
+      }
+
+      // Mobile Menu functionality
+      function initMobileMenu() {
+        const button = document.getElementById("mobile-menu-toggle");
+        const menu = document.getElementById("mobile-menu");
+        const hamburger = document.getElementById("menu-icon-hamburger");
+        const close = document.getElementById("menu-icon-close");
+
+        button.addEventListener("click", function() {
+          const isOpen = menu.classList.contains("hidden");
+          if (isOpen) {
+            menu.classList.remove("hidden");
+            button.setAttribute("aria-expanded", "true");
+            hamburger.classList.add("hidden");
+            close.classList.remove("hidden");
+          } else {
+            menu.classList.add("hidden");
+            button.setAttribute("aria-expanded", "false");
+            hamburger.classList.remove("hidden");
+            close.classList.add("hidden");
+          }
+        });
+
+        // Close menu on selecting item
+        const links = document.querySelectorAll(".mobile-nav-link");
+        links.forEach(link => {
+          link.addEventListener("click", function() {
+            menu.classList.add("hidden");
+            button.setAttribute("aria-expanded", "false");
+            hamburger.classList.remove("hidden");
+            close.classList.add("hidden");
+          });
+        });
+      }
+
+      // Smooth scrolling to Contact with pre-selected Target Intent
+      function scrollToContact(intentType) {
+        const selector = document.getElementById("client_intent");
+        if (selector) {
+          selector.value = intentType;
+        }
+        
+        const targetSection = document.getElementById("contact");
+        if (targetSection) {
+          targetSection.scrollIntoView({ behavior: 'smooth' });
+          // Focus the first form input for high-fidelity accessibility
+          setTimeout(() => {
+            const nameInput = document.getElementById("client_name");
+            if (nameInput) nameInput.focus();
+          }, 800);
+        }
+      }
+
+      // Intersection Observer setup for fade-in animations
+      function initScrollAnimations() {
+        const sections = document.querySelectorAll(".fade-in-section");
+        const observerOptions = {
+          root: null,
+          threshold: 0.1,
+          rootMargin: "0px 0px -40px 0px"
+        };
+
+        const observer = new IntersectionObserver(function(entries, observer) {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              // Remove observe to prevent unnecessary computation
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+
+        sections.forEach(section => {
+          // Add default class for structure fallback
+          section.classList.add("fade-in-section");
+          observer.observe(section);
+        });
+      }
+
+      // Validation and Form submission execution
+      function handleFormSubmission(event) {
+        event.preventDefault();
+
+        const form = document.getElementById("lead-form");
+        const nameInput = document.getElementById("client_name");
+        const emailInput = document.getElementById("client_email");
+        const phoneInput = document.getElementById("client_phone");
+
+        // Clear previous error styles
+        let isValid = true;
+        
+        // Helper validations
+        const nameVal = nameInput.value.trim();
+        const emailVal = emailInput.value.trim();
+        const phoneVal = phoneInput.value.trim();
+
+        // 1. Name Validation
+        const errName = document.getElementById("error-name");
+        if (!nameVal) {
+          isValid = false;
+          errName.classList.remove("hidden");
+          nameInput.classList.add("border-red-400", "focus:ring-red-400");
+        } else {
+          errName.classList.add("hidden");
+          nameInput.classList.remove("border-red-400", "focus:ring-red-400");
+        }
+
+        // 2. Email Validation
+        const errEmail = document.getElementById("error-email");
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailVal || !emailRegex.test(emailVal)) {
+          isValid = false;
+          errEmail.classList.remove("hidden");
+          emailInput.classList.add("border-red-400", "focus:ring-red-400");
+        } else {
+          errEmail.classList.add("hidden");
+          emailInput.classList.remove("border-red-400", "focus:ring-red-400");
+        }
+
+        // 3. Phone Validation
+        const errPhone = document.getElementById("error-phone");
+        // Check for min size
+        if (!phoneVal || phoneVal.replace(/[^0-9]/g, "").length < 7) {
+          isValid = false;
+          errPhone.classList.remove("hidden");
+          phoneInput.classList.add("border-red-400", "focus:ring-red-400");
+        } else {
+          errPhone.classList.add("hidden");
+          phoneInput.classList.remove("border-red-400", "focus:ring-red-400");
+        }
+
+        // Action Block on valid
+        if (isValid) {
+          // Dynamic presentation updates
+          const targetSpanName = document.getElementById("success-client-name");
+          if (targetSpanName) {
+            targetSpanName.textContent = nameVal;
+          }
+
+          // Show Success overlay
+          const successBlock = document.getElementById("submit-success");
+          successBlock.classList.remove("hidden");
+          
+          // Reset fields inside core form
+          form.reset();
+        }
+      }
+
+      // Restore form interface on request
+      function resetContactForm() {
+        const successBlock = document.getElementById("submit-success");
+        if (successBlock) {
+          successBlock.classList.add("hidden");
+        }
+      }
+    </script>
+  </body>
+</html>

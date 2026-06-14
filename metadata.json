@@ -1,0 +1,6 @@
+{
+  "name": "Home Wiz USA Inc.",
+  "description": "Professional, trustworthy, and modern real estate agency based in the USA, providing hands-on buying, selling, and property consulting services.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
